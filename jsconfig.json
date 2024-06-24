@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "checkJs": false,
+    "baseUrl": "./",
+    "paths": {
+      "prelude": ["./memedex/static/prelude"],
+	  "memedex": ["./core/static/memdex"],
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
