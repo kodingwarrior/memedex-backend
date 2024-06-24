@@ -1,0 +1,41 @@
+{
+  "config_hash": "166b2fbb3ad565680e0787e2e06e6f13",
+  "importmap": {
+    "imports": {
+      "radix-vue": "https://ga.jspm.io/npm:radix-vue@1.8.4/dist/index.js",
+      "vue": "https://ga.jspm.io/npm:vue@3.4.30/dist/vue.runtime.esm-browser.prod.js"
+    },
+    "scopes": {
+      "https://ga.jspm.io/": {
+        "@floating-ui/core": "https://ga.jspm.io/npm:@floating-ui/core@1.6.2/dist/floating-ui.core.mjs",
+        "@floating-ui/dom": "https://ga.jspm.io/npm:@floating-ui/dom@1.6.5/dist/floating-ui.dom.mjs",
+        "@floating-ui/utils": "https://ga.jspm.io/npm:@floating-ui/utils@0.2.2/dist/floating-ui.utils.mjs",
+        "@floating-ui/utils/dom": "https://ga.jspm.io/npm:@floating-ui/utils@0.2.2/dist/floating-ui.utils.dom.mjs",
+        "@floating-ui/vue": "https://ga.jspm.io/npm:@floating-ui/vue@1.0.6/dist/floating-ui.vue.mjs",
+        "@internationalized/date": "https://ga.jspm.io/npm:@internationalized/date@3.5.4/dist/import.mjs",
+        "@internationalized/number": "https://ga.jspm.io/npm:@internationalized/number@3.5.3/dist/import.mjs",
+        "@swc/helpers/_/_class_private_field_init": "https://ga.jspm.io/npm:@swc/helpers@0.5.11/esm/_class_private_field_init.js",
+        "vue-demi": "https://ga.jspm.io/npm:vue-demi@0.14.8/lib/index.mjs"
+      }
+    }
+  },
+  "importmap_dev": {
+    "imports": {
+      "radix-vue": "https://ga.jspm.io/npm:radix-vue@1.8.4/dist/index.js",
+      "vue": "https://ga.jspm.io/npm:vue@3.4.30/dist/vue.runtime.esm-browser.js"
+    },
+    "scopes": {
+      "https://ga.jspm.io/": {
+        "@floating-ui/core": "https://ga.jspm.io/npm:@floating-ui/core@1.6.2/dist/floating-ui.core.mjs",
+        "@floating-ui/dom": "https://ga.jspm.io/npm:@floating-ui/dom@1.6.5/dist/floating-ui.dom.mjs",
+        "@floating-ui/utils": "https://ga.jspm.io/npm:@floating-ui/utils@0.2.2/dist/floating-ui.utils.mjs",
+        "@floating-ui/utils/dom": "https://ga.jspm.io/npm:@floating-ui/utils@0.2.2/dist/floating-ui.utils.dom.mjs",
+        "@floating-ui/vue": "https://ga.jspm.io/npm:@floating-ui/vue@1.0.6/dist/floating-ui.vue.mjs",
+        "@internationalized/date": "https://ga.jspm.io/npm:@internationalized/date@3.5.4/dist/import.mjs",
+        "@internationalized/number": "https://ga.jspm.io/npm:@internationalized/number@3.5.3/dist/import.mjs",
+        "@swc/helpers/_/_class_private_field_init": "https://ga.jspm.io/npm:@swc/helpers@0.5.11/esm/_class_private_field_init.js",
+        "vue-demi": "https://ga.jspm.io/npm:vue-demi@0.14.8/lib/index.mjs"
+      }
+    }
+  }
+}
