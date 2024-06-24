@@ -1,0 +1,31 @@
+{% extends "memedex_theme/base.jinja" %}
+
+{% block mount %}
+<script type="module">
+import * as Vue from "vue"
+import SigninPage from "memedex/pages/signin-page"
+import NavigationMenu from "prelude/components/navigation-menu"
+
+document.addEventListener("DOMContentLoaded", () => {
+  const element = document.querySelector("#signin");
+  if (element !== null) {
+    const app = Vue.createApp({
+	  template: `
+	    <signin-page></signin-page>
+	  `,
+	});
+
+    // register your components
+	app.component('signin-page', SigninPage)
+
+    app.mount("#signin");
+  }
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div id="signin">
+</div>
+
+{% endblock %}
