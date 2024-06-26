@@ -12,6 +12,8 @@ class SampleView(TemplateView):
 class SigninView(TemplateView):
     template_name = "example/signin.jinja"
 
+class UploadView(TemplateView):
+    template_name = "memedex/upload.jinja"
 
 api = NinjaAPI(docs=Swagger(settings={"persistAuthorization": True}))
 

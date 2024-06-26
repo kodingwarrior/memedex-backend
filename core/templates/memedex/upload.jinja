@@ -1,0 +1,30 @@
+{% extends "memedex_theme/base.jinja" %}
+
+{% block mount %}
+<script type="module">
+import * as Vue from "vue"
+import UploadPage from "memedex/pages/upload-page"
+
+document.addEventListener("DOMContentLoaded", () => {
+  const element = document.querySelector("#upload-attachment");
+  if (element !== null) {
+    const app = Vue.createApp({
+	  template: `
+		<upload-page></upload-page>
+	  `,
+	});
+
+    // register your components
+	app.component('upload-page', UploadPage)
+
+    app.mount("#upload-attachment");
+  }
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div id="upload-attachment">
+</div>
+
+{% endblock %}
