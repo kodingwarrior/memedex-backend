@@ -15,6 +15,7 @@ django-browser-reload = "^1.12.0"
 django-importmap = "^0.3.0"
 django-jinja = "^2.11.0"
 jinja2 = "^3.1.4"
+django-ninja = "^1.1.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.4.10"
