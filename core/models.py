@@ -8,6 +8,7 @@ from django.db import models
 class VNode(models.Model):
     node_id = models.UUIDField(primary_key = True, default = uuid.uuid4, editable = False, verbose_name="노드 ID") 
     name = models.TextField(max_length=256, verbose_name="디렉토리 / 파일 이름")
+    attachment = models.FileField(upload_to="production/", default=None, null=True)
 
     created_at = models.DateTimeField(blank=True, auto_now_add=True, verbose_name="생성 시간")
     updated_at = models.DateTimeField(blank=True, auto_now=True, verbose_name="수정 시간")
