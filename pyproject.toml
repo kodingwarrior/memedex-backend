@@ -37,3 +37,4 @@ django_settings_module = "core.settings"
 [tool.importmap.dependencies]
 vue = "^3.4.30"
 radix-vue = "^1.8.4"
+'@tanstack/vue-form' = "^0.23.3"
