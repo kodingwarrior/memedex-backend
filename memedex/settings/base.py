@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_jinja',
+    'ninja_extra',
     'importmap',
     'tailwind',
     'django_browser_reload',
