@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
     'django_jinja',
     'ninja_extra',
+    'ninja_jwt',
     'importmap',
     'tailwind',
     'django_browser_reload',
