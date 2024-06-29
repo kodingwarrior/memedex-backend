@@ -1,3 +1,6 @@
+from glob import glob
+from typing import TypedDict, Unpack
+
 from django.conf import settings
 from django.templatetags.static import static
 from django.urls import reverse
@@ -6,6 +9,27 @@ from jinja2 import Environment
 from importmap import Importmap
 from tailwind import get_config
 from tailwind.utils import is_path_absolute
+
+
+class ImportArguments(TypedDict):
+    under: str
+    to: str
+
+
+def import_all(**kwargs: Unpack[ImportArguments]):
+    # return {}
+    root_dir = settings.BASE_DIR
+    source_dir: str = str(root_dir / kwargs['under'])
+    source_files = glob(f"{source_dir}/**/*.js", recursive=True)
+
+    importmap_dict = {}
+    for source_file in source_files:
+        source_module = source_file.split('static/')[-1]
+        target_module = source_module.replace(source_dir, kwargs['to']).replace(".js", "")
+
+        importmap_dict[target_module] = static(source_module)
+
+    return importmap_dict
 
 
 def environment(**options):
@@ -27,9 +51,14 @@ def environment(**options):
                 development=settings.DEBUG, 
                 extra_imports={
                     "vue": "https://ga.jspm.io/npm:vue@3.4.30/dist/vue.esm-browser.js",
-                    "prelude/components/navigation-menu": static("prelude/components/navigation-menu.js"),
-                    "prelude/components/aspect-ratio": static("prelude/components/aspect-ratio.js"),
-                    "memedex/pages/signin-page": static("memedex/pages/signin-page.js"),
+                    **import_all(
+                        under="memedex/static/prelude",
+                        to="prelude"
+                    ),
+                    **import_all(
+                        under="core/static/memedex",
+                        to="memedex"
+                    ),
                 }
             )
         }
