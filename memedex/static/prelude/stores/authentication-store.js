@@ -18,10 +18,12 @@ export const useAuthenticationStore = defineStore('authentication', {
         headers: { 'Content-Type': 'application/json' },
       })
       const { access: token } = await response.json()
-      this.jwtToken = token
+      this.jwtToken = token;
+      window.location.reload();
     },
     logout() {
       this.jwtToken = null
+      window.location.reload();
     },
   },
 });
