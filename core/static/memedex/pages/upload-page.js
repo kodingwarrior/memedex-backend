@@ -34,6 +34,7 @@ const UploadPage = {
         body: form,
       })
 
+      window.location.href = "/gallery";
     },
   },
 	template: `
