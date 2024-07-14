@@ -1,12 +1,16 @@
+import DefaultLayout from 'prelude/layouts/default-layout';
+
 import GalleryCard from 'memedex/components/gallery-card'
 
 const GalleryPage = {
 	template: `
-    <div class="grid grid-cols-3 gap-x-4">
-      <template v-for="file in files">
-        <GalleryCard :file="file" />
-      </template>
-	  </div>
+    <default-layout>
+      <div class="grid grid-cols-3 gap-x-4">
+        <template v-for="file in files">
+          <GalleryCard :file="file" />
+        </template>
+      </div>
+    </default-layout>
 	`,
 	data() {
     return {
@@ -14,7 +18,8 @@ const GalleryPage = {
 		}
   },
   components: {
-    GalleryCard
+    GalleryCard,
+    DefaultLayout
   },
   mounted() {
     this.fetchFiles();

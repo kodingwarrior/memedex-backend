@@ -1,16 +1,18 @@
+import DefaultLayout from 'prelude/layouts/default-layout';
+
 import AspectRatio from 'prelude/components/aspect-ratio';
 import NavigationMenu from 'prelude/components/navigation-menu'
 
 const SigninPage = {
 	template: `
-	<div>
-	  <navigation-menu></navigation-menu>
+	<default-layout>
 	  <aspect-ratio/>
-	</div>
+	</default-layout>
 	`,
 	components: { 
 		NavigationMenu,
 		AspectRatio,
+    DefaultLayout
 	},
 }
 

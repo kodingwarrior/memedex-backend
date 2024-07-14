@@ -1,7 +1,8 @@
+import DefaultLayout from "prelude/layouts/default-layout";
 
 const UploadPage = {
 	template: `
-	  <div class="w-full max-w-2xl">
+	  <default-layout>
 	  	<form 
         @submit="onSubmit"
         class="w-full flex flex-col mx-auto">
@@ -17,8 +18,11 @@ const UploadPage = {
           <button type="submit">Submit</button>
         </div>
       </form>
-	  </div>
+	  </default-layout>
 	`,
+  components: {
+    DefaultLayout,
+  },
 	data() {
 		return {
 			file: null,
