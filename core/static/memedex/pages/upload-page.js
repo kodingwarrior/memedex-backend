@@ -47,10 +47,9 @@ const UploadPage = {
       const form = new FormData()
       form.append("file", file);
 
-      fetch("http://localhost:8000/api/attachments", {
+      fetch("/api/attachments", {
         method: "POST",
         body: form,
-
       })
     },
   }
