@@ -3,11 +3,14 @@
 {% block mount %}
 <script type="module">
 import * as Vue from "vue"
+import { createPinia } from "pinia"
+
 import GalleryPage from "memedex/pages/gallery-page"
 
 document.addEventListener("DOMContentLoaded", () => {
   const element = document.querySelector("#gallery");
   if (element !== null) {
+  	const pinia = createPinia()
     const app = Vue.createApp({
 	  template: `
 	    <gallery-page></gallery-page>
@@ -16,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // register your components
 	app.component('gallery-page', GalleryPage)
+	app.use(pinia);
+	window.pinia = pinia;
 
     app.mount("#gallery");
   }

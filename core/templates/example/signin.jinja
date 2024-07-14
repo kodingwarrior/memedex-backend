@@ -3,12 +3,14 @@
 {% block mount %}
 <script type="module">
 import * as Vue from "vue"
+import { createPinia } from "pinia"
+
 import SigninPage from "memedex/pages/signin-page"
-import NavigationMenu from "prelude/components/navigation-menu"
 
 document.addEventListener("DOMContentLoaded", () => {
   const element = document.querySelector("#signin");
   if (element !== null) {
+  	const pinia = createPinia()
     const app = Vue.createApp({
 	  template: `
 	    <signin-page></signin-page>
@@ -17,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // register your components
 	app.component('signin-page', SigninPage)
+	app.use(pinia);
+	window.pinia = pinia;
 
     app.mount("#signin");
   }

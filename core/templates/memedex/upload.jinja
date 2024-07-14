@@ -3,11 +3,14 @@
 {% block mount %}
 <script type="module">
 import * as Vue from "vue"
+import { createPinia } from "pinia"
+
 import UploadPage from "memedex/pages/upload-page"
 
 document.addEventListener("DOMContentLoaded", () => {
   const element = document.querySelector("#upload-attachment");
   if (element !== null) {
+  	const pinia = createPinia()
     const app = Vue.createApp({
 	  template: `
 		<upload-page></upload-page>
@@ -16,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // register your components
 	app.component('upload-page', UploadPage)
+	app.use(pinia);
+	window.pinia = pinia;
 
     app.mount("#upload-attachment");
   }
