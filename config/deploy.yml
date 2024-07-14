@@ -85,6 +85,9 @@ accessories:
 ssh:
   user: kojima-memedex
 
+healthcheck:
+  port: 8000
+
 traefik:
   options:
     publish:
