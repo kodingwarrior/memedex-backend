@@ -5,6 +5,7 @@ if [ "${1}" == "python" ] && [ "${2}" == "manage.py" ] && [ "${3}" == "runserver
 	echo "$GOOGLE_CREDENTIALS_BASE64_ENCODED" | base64 -d > /django/credentials.json
 	python manage.py migrate --noinput
 	python manage.py collectstatic --noinput
+	python manage.py tailwind build
 fi
 
 exec "${@}"
