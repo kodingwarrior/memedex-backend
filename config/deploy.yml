@@ -81,11 +81,6 @@ accessories:
     options:
       network: private
 
-# Bridge fingerprinted assets, like JS and CSS, between versions to avoid
-# hitting 404 on in-flight requests. Combines all files from new and old
-# version inside the asset_path.
-asset_path: /django/staticfiles
-
 # Use a different ssh user than root
 ssh:
   user: kojima-memedex

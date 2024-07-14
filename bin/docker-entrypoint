@@ -2,9 +2,9 @@
 
 # If running the rails server then create or migrate existing database
 if [ "${1}" == "python" ] && [ "${2}" == "manage.py" ] && [ "${3}" == "runserver" ]; then
+	echo "$GOOGLE_CREDENTIALS_BASE64_ENCODED" | base64 -d > /django/credentials.json
 	python manage.py migrate --noinput
 	python manage.py collectstatic --noinput
-	base64 -d <<< "$GOOGLE_CREDENTIALS_BASE64_ENCODED" > /django/credentials.json
 fi
 
 exec "${@}"
