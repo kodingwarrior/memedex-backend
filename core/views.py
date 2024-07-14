@@ -42,3 +42,14 @@ def get_attachments(request):
     hosted_files = HostedFile.objects.all()
     return hosted_files
 
+@api_controller("/attachments")
+class AttachmentsController(ControllerBase):
+    @route.get('/{attachment_id}', response={200: HostedFileSchema}) 
+    def get_attachment(self, attachment_id: str):
+        hosted_file = HostedFile.objects.get(node_id=attachment_id)
+        return hosted_file
+
+
+api.register_controllers(
+    AttachmentsController
+)
