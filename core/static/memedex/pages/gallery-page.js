@@ -4,7 +4,7 @@ import GalleryCard from 'memedex/components/gallery-card'
 
 const GalleryPage = {
 	template: `
-    <default-layout>
+    <default-layout login-required>
       <div class="grid grid-cols-3 gap-x-4">
         <template v-for="file in files">
           <GalleryCard :file="file" />

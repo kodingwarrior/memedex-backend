@@ -2,7 +2,7 @@ import DefaultLayout from "prelude/layouts/default-layout";
 
 const UploadPage = {
 	template: `
-	  <default-layout>
+	  <default-layout login-required>
 	  	<form 
         @submit="onSubmit"
         class="w-full flex flex-col mx-auto">
