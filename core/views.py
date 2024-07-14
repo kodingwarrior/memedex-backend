@@ -30,7 +30,7 @@ class GalleryView(TemplateView):
 api = NinjaExtraAPI()
 api.register_controllers(NinjaJWTDefaultController)
 
-@api.post('/attachments')
+@api.post("/attachments", tags=["attachments"])
 def upload_attachment(request, file: File[UploadedFile]):
     hosted_file = HostedFile(name=file.name, attachment=file)
     hosted_file.save()
