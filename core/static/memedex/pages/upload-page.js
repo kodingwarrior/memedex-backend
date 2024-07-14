@@ -3,6 +3,11 @@ import DefaultLayout from "prelude/layouts/default-layout";
 const UploadPage = {
 	template: `
 	  <default-layout login-required>
+      <div class="flex justify-start py-4 mb-6">
+        <a href="/gallery" class="font-black py-2">
+          <- Back to gallery
+        </a>
+      </div>
 	  	<form 
         @submit="onSubmit"
         class="w-full flex flex-col mx-auto">
