@@ -56,4 +56,4 @@ USER django:django
 ENTRYPOINT ["/django/bin/docker-entrypoint"]
 
 expose 8000 
-CMD ["python", "manage.py", "runserver"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
