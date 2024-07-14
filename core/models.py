@@ -1,6 +1,7 @@
 import uuid
 from dataclasses import dataclass
 
+from django.conf import settings
 from django.db import models
 
 # Create your models here.
@@ -14,6 +15,7 @@ class VNode(models.Model):
     updated_at = models.DateTimeField(blank=True, auto_now=True, verbose_name="수정 시간")
 
     parent = models.ForeignKey("core.Directory", null=True, on_delete=models.DO_NOTHING, verbose_name="부모 디렉토리", related_name="children")
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.DO_NOTHING, verbose_name="소유자", related_name="files")
 
 
 class Directory(VNode):

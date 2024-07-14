@@ -1,8 +1,7 @@
-from django.shortcuts import render
-
 from django.views.generic import TemplateView
 from ninja import ModelSchema, UploadedFile, File
 from ninja_extra import ControllerBase, NinjaExtraAPI, api_controller, route
+from ninja_jwt.authentication import JWTAuth
 from ninja_jwt.controller import NinjaJWTDefaultController
 
 from core.models import HostedFile
@@ -30,9 +29,9 @@ class GalleryView(TemplateView):
 api = NinjaExtraAPI()
 api.register_controllers(NinjaJWTDefaultController)
 
-@api.post("/attachments", tags=["attachments"])
+@api.post("/attachments", tags=["attachments"], auth=JWTAuth())
 def upload_attachment(request, file: File[UploadedFile]):
-    hosted_file = HostedFile(name=file.name, attachment=file)
+    hosted_file = HostedFile(name=file.name, attachment=file, owner=request.auth)
     hosted_file.save()
     data = file.read()
     return {'name': hosted_file.name, 'len': len(data)}
