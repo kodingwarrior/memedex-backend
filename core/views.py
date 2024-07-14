@@ -16,6 +16,10 @@ class UploadView(TemplateView):
     template_name = "memedex/upload.jinja"
 
 api = NinjaAPI(docs=Swagger(settings={"persistAuthorization": True}))
+class GalleryView(TemplateView):
+    template_name = "memedex/gallery.jinja"
+
+
 
 @api.post('/attachments')
 def upload_attachment(request, file: File[UploadedFile]):
@@ -23,3 +27,9 @@ def upload_attachment(request, file: File[UploadedFile]):
     hosted_file.save()
     data = file.read()
     return {'name': hosted_file.name, 'len': len(data)}
+
+@api.get('/attachments', tags=["attachments"], response={200: list[HostedFileSchema]})
+def get_attachments(request):
+    hosted_files = HostedFile.objects.all()
+    return hosted_files
+
