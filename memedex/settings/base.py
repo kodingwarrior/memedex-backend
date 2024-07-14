@@ -162,6 +162,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'core' / 'static',
     BASE_DIR / 'memedex' / 'static',
+    BASE_DIR / 'memedex_theme' / 'static',
 ]
 
 # Default primary key field type
