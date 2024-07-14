@@ -5,7 +5,13 @@ from ninja import ModelSchema, UploadedFile, File
 from ninja_extra import ControllerBase, NinjaExtraAPI, api_controller, route
 from ninja_jwt.controller import NinjaJWTDefaultController
 
-from core.models import HostedFile, VNode
+from core.models import HostedFile
+
+
+class HostedFileSchema(ModelSchema):
+    class Config:
+        model = HostedFile 
+        model_fields = ["node_id", "name", "attachment"] 
 
 
 class SampleView(TemplateView):
