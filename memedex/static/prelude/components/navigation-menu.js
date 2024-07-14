@@ -1,55 +1,37 @@
-import {
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuRoot,
-  NavigationMenuSub,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from 'radix-vue'
+import { mapActions, mapState, mapStores } from "pinia";
+
+import { useAuthenticationStore } from "prelude/stores/authentication-store";
 
 const NavigationMenu = {
-  components: {
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuRoot,
-  NavigationMenuSub,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-	
+  computed: {
+    ...mapStores(useAuthenticationStore),
+    ...mapState(useAuthenticationStore, ['isAuthenticated']),
+  },
+  methods:{
+    ...mapActions(useAuthenticationStore, ['login', 'logout']),
+  },
+  mounted() {
+    console.log(this.isAuthenticated);
+    console.log(this.jwtToken);
+    console.log(this.authenticationStore.jwtToken);
   },
   template: `
-	<navigation-menu-root>
-      <navigation-menu-list>
-    	<navigation-menu-item>
-    	  <navigation-menu-trigger />
-    	  <navigation-menu-content>
-    		<navigation-menu-link />
-    	  </navigation-menu-content>
-    	</navigation-menu-item>
-   
-    	<navigation-menu-item>
-    	  <navigation-menu-link />
-    	</navigation-menu-item>
-   
-    	<navigation-menu-item>
-    	  <navigation-menu-trigger />
-    	  <navigation-menu-content>
-    		<navigation-menu-sub>
-    	      <navigation-menu-list />
-    		  <navigation-menu-viewport />
-    	    </navigation-menu-sub>
-    	  </navigation-menu-content>
-    	</navigation-menu-item>
-    	<navigation-menu-indicator />
-      </navigation-menu-list>
-      <navigation-menu-viewport />
-	</navigation-menu-root>
+    <div>
+      <template v-if="!!isAuthenticated">
+        <div class="cursor-pointer" @click="logout">
+          <div class="text-right">
+            Sign Out
+          </div>
+        </div>
+      </template>
+      <template v-else>
+        <a href="/signin">
+          <div class="text-right">
+            Sign In
+          </div>
+        </div>
+      </template>
+    </div>
   `,
 }
 
