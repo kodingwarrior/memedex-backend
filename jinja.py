@@ -51,6 +51,7 @@ def environment(**options):
                 development=settings.DEBUG, 
                 extra_imports={
                     "vue": "https://ga.jspm.io/npm:vue@3.4.30/dist/vue.esm-browser.js",
+                    "pinia": "https://ga.jspm.io/npm:pinia@2.1.7/dist/pinia.prod.cjs",
                     **import_all(
                         under="memedex/static/prelude",
                         to="prelude"
