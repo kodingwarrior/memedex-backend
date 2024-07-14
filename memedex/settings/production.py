@@ -12,3 +12,9 @@ STORAGES['staticfiles'] = {
         "base_url": "/static",
     }
 }
+
+DEBUG = False 
+
+ALLOWED_HOSTS = [
+    "memedex.kodingwarrior.dev",
+]
