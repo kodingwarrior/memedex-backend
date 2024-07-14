@@ -16,6 +16,7 @@ STORAGES['staticfiles'] = {
 DEBUG = False 
 
 ALLOWED_HOSTS = [
+    "localhost",
     "memedex.kodingwarrior.dev",
 ]
 
