@@ -10,10 +10,18 @@ const GalleryPage = {
           Upload
         </a>
       </div>
-      <div class="grid grid-cols-3 gap-x-4">
-        <template v-for="file in files">
-          <GalleryCard :file="file" />
-        </template>
+      <div class="flex justify-center">
+        <div 
+          class="
+            grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-12
+            justify-center
+            mx-auto
+          "
+        >
+          <template v-for="file in files">
+            <GalleryCard :file="file" />
+          </template>
+        </div>
       </div>
     </default-layout>
 	`,
