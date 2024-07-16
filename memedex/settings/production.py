@@ -20,6 +20,13 @@ ALLOWED_HOSTS = [
     "memedex.kodingwarrior.dev",
 ]
 
+CSRF_ALLOWED_ORIGINS = [
+    "https://memedex.kodingwarrior.dev"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://memedex.kodingwarrior.dev",
+]
 
 LOGGING = {
     "version": 1,
