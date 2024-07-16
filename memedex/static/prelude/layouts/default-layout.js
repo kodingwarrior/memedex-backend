@@ -19,7 +19,7 @@ const DefaultLayout = {
     }
   },
   template: `
-    <div class="w-full mx-4 xl:mx-auto xl:max-w-3xl">
+    <div class="w-full mx-auto xl:max-w-3xl">
       <div class="mb-6">
         <navigation-menu></navigation-menu>
       </div>
