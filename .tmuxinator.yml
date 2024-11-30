@@ -12,7 +12,7 @@ windows:
   - debugging:
       layout: main-vertical
       panes:
-        - poetry run python manage.py runserver
-        - poetry run python manage.py tailwind start
-        - poetry run python manage.py shell
+        - devcontainer exec --workspace-folder=. python manage.py runserver
+        - devcontainer exec --workspace-folder=. python manage.py tailwind start
+        - devcontainer exec --workspace-folder=. python manage.py shell
 
