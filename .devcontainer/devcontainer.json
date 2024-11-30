@@ -1,0 +1,14 @@
+{
+  "name": "Django Dev Container",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "web",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-azuretools.vscode-docker"
+  ],
+  "remoteUser": "django"
+}

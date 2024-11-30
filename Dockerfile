@@ -29,7 +29,7 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config
 
-RUN pip install poetry 
+RUN pip install --no-cache-dir poetry
 
 COPY pyproject.toml poetry.lock ./ 
 

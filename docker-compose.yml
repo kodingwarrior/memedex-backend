@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/django
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=memedex.settings.development
+      - POSTGRES_DB=memedex
+      - POSTGRES_USER=memedex
+      - POSTGRES_PASSWORD=sekret
+      - DB_HOST=db
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: memedex
+      POSTGRES_USER: memedex
+      POSTGRES_PASSWORD: "sekret"
+
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge
+  
